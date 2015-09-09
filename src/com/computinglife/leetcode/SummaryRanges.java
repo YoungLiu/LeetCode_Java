@@ -19,21 +19,31 @@ public class SummaryRanges {
 		String tmp;
 		for (int i = 0; i < nums.length; i++) {
 			start = nums[i];
-			if (i < nums.length - 2) {
-				while (i < nums.length - 2 && (nums[i] + 1) == nums[i + 1]) {
+			if (i < nums.length - 1) {
+				while (i < nums.length - 1 && nums[i] + 1 == nums[i + 1]) {
 					i++;
 				}
 			} else {
 				// 这种情况一定是最后一个元素需要单独拿出来
 				res.add(nums[i] + "");
+				continue;
 			}
 
 			end = nums[i];
-			tmp = start + "->" + end;
+			if (start == end) {
+				tmp = start + "";
+			} else {
+				tmp = start + "->" + end;
+			}
 			res.add(tmp);
-			i++;
 		}
 		return res;
+	}
+
+	public static void main(String[] args) {
+		SummaryRanges summaryRanges = new SummaryRanges();
+		int[] test = { 0, 3 };
+		System.out.println(summaryRanges.summaryRanges(test));
 	}
 
 }
