@@ -2,7 +2,7 @@
 //
 //For example, given [0,1,2,4,5,7], return ["0->2","4->5","7"].
 
-package com.computinglife.leetcode;
+package com.computinglife.leetcode.easy;
 
 import java.util.ArrayList;
 import java.util.List;

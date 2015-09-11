@@ -1,6 +1,6 @@
 //Given an integer, write a function to determine if it is a power of two.
 
-package com.computinglife.leetcode;
+package com.computinglife.leetcode.easy;
 
 public class PowerOfTwo {
 	public boolean isPowerOfTwo(int n) {

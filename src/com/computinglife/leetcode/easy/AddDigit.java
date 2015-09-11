@@ -7,7 +7,7 @@
 //Follow up:
 //Could you do it without any loop/recursion in O(1) runtime?
 
-package com.computinglife.leetcode;
+package com.computinglife.leetcode.easy;
 
 import java.util.ArrayList;
 import java.util.List;

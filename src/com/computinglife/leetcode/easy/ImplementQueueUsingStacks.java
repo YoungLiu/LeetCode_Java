@@ -13,7 +13,7 @@
 //You may assume that all operations are valid (for example, 
 //		no pop or peek operations will be called on an empty queue).
 
-package com.computinglife.leetcode;
+package com.computinglife.leetcode.easy;
 
 import java.util.Stack;
 

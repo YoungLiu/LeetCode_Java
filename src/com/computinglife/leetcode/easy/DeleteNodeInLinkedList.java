@@ -5,7 +5,7 @@
 //you are given the third node with value 3, 
 //the linked list should become 1 -> 2 -> 4 after calling your function.
 
-package com.computinglife.leetcode;
+package com.computinglife.leetcode.easy;
 
 public class DeleteNodeInLinkedList {
 	public class ListNode {

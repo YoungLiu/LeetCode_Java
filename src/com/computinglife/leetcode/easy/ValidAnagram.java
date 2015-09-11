@@ -7,7 +7,7 @@
 //Note:
 //You may assume the string contains only lowercase alphabets.
 
-package com.computinglife.leetcode;
+package com.computinglife.leetcode.easy;
 
 import java.util.Arrays;
 

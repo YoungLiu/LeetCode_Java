@@ -11,7 +11,7 @@
 //
 //["1->2->5", "1->3"]
 
-package com.computinglife.leetcode;
+package com.computinglife.leetcode.easy;
 
 import java.util.ArrayList;
 import java.util.List;

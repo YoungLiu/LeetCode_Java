@@ -4,7 +4,7 @@
 //Could you do it in O(n) time and O(1) space?
 //此题关键在于在空间复杂度为1的限制下完成字符串翻转,涉及找出字符串中点和原地翻转两个关键点
 
-package com.computinglife.leetcode;
+package com.computinglife.leetcode.easy;
 
 import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
 

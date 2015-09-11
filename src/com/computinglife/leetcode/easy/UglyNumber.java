@@ -1,4 +1,4 @@
-package com.computinglife.leetcode;
+package com.computinglife.leetcode.easy;
 
 import java.util.Scanner;
 import java.util.Vector;
