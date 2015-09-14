@@ -100,8 +100,17 @@ public class RectangleArea {
 		}
 	}
 
+	public int computeArea2(int A, int B, int C, int D, int E, int F, int G, int H) {
+		int sum = (C - A) * (D - B) + (G - E) * (H - F);
+		if (C <= E || A >= G || D <= F || B >= H) {
+			return sum;
+		}
+		int comm = (Math.min(C, G) - Math.max(A, E)) * (Math.min(D, H) - Math.max(B, F));
+		return sum - comm;
+	}
+
 	public static void main(String[] args) {
 		RectangleArea test = new RectangleArea();
-		System.out.println(test.computeArea(-5, -5, -4, 0, -3, -3, 3, 3));
+		System.out.println(test.computeArea(1, 2, 5, 6, 3, 1, 8, 4));
 	}
 }
