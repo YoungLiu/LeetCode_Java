@@ -11,7 +11,7 @@
 //
 //Given "paper", "title", return true.
 //
-//Note:
+//Note:test
 //You may assume both s and t have the same length.
 
 package com.computinglife.leetcode.easy;
