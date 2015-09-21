@@ -8,12 +8,38 @@
 
 package com.computinglife.leetcode.easy;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 /**
  * Created by Young on 2015/9/20.
  */
 public class ReverseBits {
     // you need treat n as an unsigned value
     public int reverseBits(int n) {
+        List<Integer> original = new ArrayList<>();
+        int result = 0;
+        while (n != 0) {
+            if (n % 2 != 0) {
+                original.add(1);
+            } else {
+                original.add(0);
+            }
+            n = n >>> 1;
+        }
+        while(original.size()<32){
+            original.add(0);
+        }
+        Collections.reverse(original);
+        for (int i=0;i<32;i++) {
+            result += original.get(i) * Math.pow(2, i);
+        }
+        return result;
+    }
 
+    public static void main(String[] args){
+        ReverseBits test = new ReverseBits();
+        System.out.println(test.reverseBits(1));
     }
 }
