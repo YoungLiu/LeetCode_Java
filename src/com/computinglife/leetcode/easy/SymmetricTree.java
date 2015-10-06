@@ -79,7 +79,7 @@ public class SymmetricTree {
             TreeNode node = tmpQueue.poll();
             if (node == null) {
                 if (tmpQueue.size() != 0) {
-                    System.out.println(tmp.toString());
+                    //System.out.println(tmp.toString());
                     int i = 0;
                     int j = tmp.size() - 1;
                     while (i < j) {
