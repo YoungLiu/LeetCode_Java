@@ -25,4 +25,8 @@ public class FirstBadVersion {
 		}
 		return start;
 	}
+
+	public boolean isBadVersion(int test) {
+		return true;
+	}
 }
