@@ -14,6 +14,11 @@
 package com.computinglife.leetcode.easy;
 
 public class FirstBadVersion {
+
+	public boolean isBadVersion(int test) {
+		return true;
+	}
+
 	public int firstBadVersion(int n) {
 		int start = 1, end = n;
 		while (start < end) {
@@ -25,8 +30,7 @@ public class FirstBadVersion {
 		}
 		return start;
 	}
+	
+	
 
-	public boolean isBadVersion(int test) {
-		return true;
-	}
 }
