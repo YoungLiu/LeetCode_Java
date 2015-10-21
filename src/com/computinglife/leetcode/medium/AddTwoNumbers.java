@@ -73,8 +73,10 @@ public class AddTwoNumbers {
 
 	public static void main(String[] args) {
 		AddTwoNumbers test = new AddTwoNumbers();
-		ListNode l1 = new ListNode(5);
-		ListNode l2 = new ListNode(5);
+
+		ListNode l1 = test.new ListNode(5);
+		ListNode l2 = test.new ListNode(5);
+
 		test.addTwoNumbers(l1, l2);
 	}
 }
