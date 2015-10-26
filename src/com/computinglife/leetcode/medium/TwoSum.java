@@ -11,6 +11,7 @@
 
 package com.computinglife.leetcode.medium;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,5 +32,33 @@ public class TwoSum {
 			dumpMap.put(nums[i], i);
 		}
 		return ret;
+	}
+
+	public int[] twoSum2(int[] sum, int target) {
+		Arrays.sort(sum);
+		int front = 0;
+		int end = sum.length - 1;
+		int[] ret = new int[2];
+		while (front < end) {
+			if (sum[front] + sum[end] == target) {
+				ret[0] = front + 1;
+				ret[1] = end + 1;
+				return ret;
+			} else if (sum[front] + sum[end] < target) {
+				front++;
+			} else if (sum[front] + sum[end] > target) {
+				end--;
+			}
+		}
+		return ret;
+	}
+
+	public static void main(String[] args) {
+		TwoSum test = new TwoSum();
+		int[] sum = { 2, 7, 11, 15 };
+		int[] ret = test.twoSum2(sum, 9);
+		for (int tmp : ret) {
+			System.out.println(tmp);
+		}
 	}
 }
