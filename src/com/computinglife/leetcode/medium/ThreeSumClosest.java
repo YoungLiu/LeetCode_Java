@@ -10,21 +10,31 @@
 package com.computinglife.leetcode.medium;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Map;
 
 public class ThreeSumClosest {
 	public int threeSumClosest(int[] nums, int target) {
-		Map<String, Integer> ret = new HashMap<>();
-		ret.put("min", Integer.MAX_VALUE);
-		ret.put("sum", 0);
 		Arrays.sort(nums);
+		int diff = Integer.MAX_VALUE;
+		int output = 0;
+		int sum = 0;
 		for (int i = 0; i < nums.length - 2; i++) {
-			if (i == 0 || nums[i] != nums[i - 1]) {
-				targetCloset(nums, target, i + 1, nums.length - 1, ret);
+			int low = i + 1;
+			int high = nums.length - 1;
+			while (low < high) {
+				sum = nums[i] + nums[low] + nums[high];
+				if (diff > Math.abs(sum - target)) {
+					diff = Math.abs(sum - target);
+					output = sum;
+				}
+				if (sum > target) {
+					high--;
+				} else {
+					low++;
+				}
 			}
 		}
-		return ret.get("sum");
+		return output;
 	}
 
 	public void targetCloset(int[] nums, int target, int front, int end, Map<String, Integer> ret) {
