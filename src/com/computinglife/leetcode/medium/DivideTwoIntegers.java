@@ -6,9 +6,51 @@ package com.computinglife.leetcode.medium;
 
 public class DivideTwoIntegers {
 
-	// public int divide(int dividend, int divisor) {
-	//
-	// }
+	private int divide_res = 0;
+
+	private int count = 0;
+
+	public int divide(int dividend, int divisor) {
+		boolean neg = false;
+		if (dividend == Integer.MIN_VALUE) {
+			if (divisor == -1)
+				return Integer.MAX_VALUE;
+			else if (divisor == 1)
+				return Integer.MIN_VALUE;
+			else if (divisor > 1) {
+				dividend += divisor;
+				divide_res++;
+			} else if (divisor == Integer.MIN_VALUE) {
+				return 1;
+			} else {
+				dividend -= divisor;
+				divide_res++;
+			}
+		}
+		if (divisor == Integer.MIN_VALUE) {
+			return 0;
+		}
+		if ((dividend > 0 && divisor < 0) || (dividend < 0 && divisor > 0)) {
+			neg = true;
+		}
+		divideHelper(Math.abs(dividend), Math.abs(divisor));
+		return !neg ? divide_res : 0 - divide_res;
+	}
+
+	public void divideHelper(int dividend, int divisor) {
+		count++;
+
+		if (dividend < divisor)
+			return;
+		int count = 1, d = divisor;
+		while (divisor <= dividend && divisor > 0) {
+			divide_res += count;
+			dividend -= divisor;
+			divisor <<= 1;
+			count <<= 1;
+		}
+		divideHelper(dividend, d);
+	}
 
 	/* 这种方法的问题在于如果数据运算量很大，会不停的递归下去，直至jvm栈溢出，所以如下方法虽然是一个好方法，但是并不能应对大数据量的运算 */
 	public int divide2(int dividend, int divisor) {
@@ -44,7 +86,7 @@ public class DivideTwoIntegers {
 		}
 		long sum = ldivisor;
 		long nums = 1;
-		while ((sum + sum) <= ldivisor) {
+		while ((sum + sum) <= ldividend) {
 			sum += sum;
 			nums += nums;
 		}
@@ -54,5 +96,6 @@ public class DivideTwoIntegers {
 	public static void main(String[] args) {
 		DivideTwoIntegers test = new DivideTwoIntegers();
 		System.out.println(test.divide2(1000000000, -3));
+		System.out.println(test.count);
 	}
 }
