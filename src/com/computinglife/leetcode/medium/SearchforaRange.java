@@ -39,7 +39,7 @@ public class SearchforaRange {
 					ret.add(mid);
 					mid++;
 				}
-				mid = tmp;
+				mid = tmp-1;
 				// 后向
 				while (mid >= 0 && nums[mid] == target) {
 					ret.add(mid);
@@ -49,13 +49,24 @@ public class SearchforaRange {
 			}
 		}
 		Collections.sort(ret);
-		int[] res = new int[ret.size()];
-		int i = 0;
-		for (int tmp : ret) {
-			res[i] = tmp;
-			tmp++;
+		if (ret.size() == 1) {
+			return new int[] { ret.get(0), ret.get(0) };
 		}
+		if (ret.size() == 0) {
+			return new int[] { -1, -1 };
+		}
+		int[] res = new int[2];
+		res[0] = ret.get(0);
+		res[1] = ret.get(ret.size() - 1);
 		return res;
 	}
 
+	public static void main(String[] args) {
+		SearchforaRange test = new SearchforaRange();
+		int[] nums = { 2, 2 };
+		int[] res = test.searchRange(nums, 2);
+		for (int tmp : res) {
+			System.out.println(tmp);
+		}
+	}
 }
