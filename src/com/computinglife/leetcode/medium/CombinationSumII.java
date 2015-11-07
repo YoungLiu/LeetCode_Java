@@ -18,28 +18,45 @@ package com.computinglife.leetcode.medium;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class CombinationSumII {
+	private List<List<Integer>> res = new ArrayList<>();
+
 	public List<List<Integer>> combinationSum2(int[] candidates, int target) {
-		Arrays.sort(candidates);
-		List<List<Integer>> res = new ArrayList<>();
-		combination(candidates, res, new ArrayList<>(), target, 0);
+
+		Boolean[] isVisited = new Boolean[candidates.length];
+		Arrays.fill(isVisited, false);
+		combination(candidates, new ArrayList<Integer>(), target, 0, 0, isVisited);
 		return res;
 	}
 
-	public void combination(int[] candidates, List<List<Integer>> res, List<Integer> list, int target, int start) {
-		if (target == 0) {
-			res.add(list);
+	public void combination(int[] candidates, List<Integer> list, int target, int sum, int max, Boolean[] isVisited) {
+		if (sum > target) {
 			return;
 		}
-		for (; start < candidates.length; start++) {
-			if (target - candidates[start] < 0) {
-				break;
-			}
-			List<Integer> tmp = new ArrayList<>(list);
-			tmp.add(candidates[start]);
-			combination(candidates, res, tmp, target - candidates[start], ++start);
+		if (target == sum) {
+			res.add(new ArrayList<>(list));
 		}
+		Set<Integer> set = new HashSet<>();
+		for (int i = 0; i < candidates.length; i++) {
+			if (!isVisited[i] && candidates[i] >= max && !set.contains(candidates[i])) {
+				set.add(candidates[i]);
+				isVisited[i] = true;
+				list.add(candidates[i]);
+				combination(candidates, list, target, sum + candidates[i], candidates[i], isVisited);
+				isVisited[i] = false;
+				list.remove(list.size() - 1);
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+		CombinationSumII test = new CombinationSumII();
+		int[] nums = { 1 };
+		test.combinationSum2(nums, 1);
+		System.out.println(test.res);
 	}
 }
