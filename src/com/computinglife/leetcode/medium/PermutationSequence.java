@@ -76,7 +76,7 @@ public class PermutationSequence {
 	public static void main(String[] args) {
 		PermutationSequence test = new PermutationSequence();
 		Long start = System.currentTimeMillis();
-		System.out.println(test.getPermutation(4, 3));
+		System.out.print(test.getPermutation(4, 3));
 		Long end = System.currentTimeMillis();
 		System.err.println(end - start);
 	}
