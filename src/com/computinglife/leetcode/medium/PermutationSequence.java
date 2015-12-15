@@ -15,7 +15,9 @@
 
 package com.computinglife.leetcode.medium;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class PermutationSequence {
 	public String getPermutation(int n, int k) {
@@ -73,10 +75,33 @@ public class PermutationSequence {
 		return res;
 	}
 
+	public String getPermutation2(int n, int k) {
+		StringBuilder ret = new StringBuilder();
+		// 存放按位增长的阶乘信息,最高位顶级不用存储
+		int[] factorial = new int[n];
+		factorial[0] = 1;
+		for (int i = 1; i < n; i++) {
+			factorial[i] = factorial[i - 1] * i;
+		}
+		// 存放我们需要的数字
+		List<Character> nums = new ArrayList<>();
+		for (int i = 0; i < n; i++) {
+			nums.add(i, (char) ((i + 1) + '0'));
+		}
+		k--;// 之所以减一，是为了后面取nums中的数字方便
+		for (int i = n; i >= 1; i--) {
+			int index = k / (factorial[i - 1]);
+			k %= (factorial[i - 1]);
+			ret.append(nums.get(index));
+			nums.remove(index);
+		}
+		return ret.toString();
+	}
+
 	public static void main(String[] args) {
 		PermutationSequence test = new PermutationSequence();
 		Long start = System.currentTimeMillis();
-		System.out.print(test.getPermutation(4, 3));
+		System.out.println(test.getPermutation2(8, 8590));
 		Long end = System.currentTimeMillis();
 		System.err.println(end - start);
 	}
