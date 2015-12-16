@@ -22,7 +22,7 @@ public class UniquePaths {
     }
 
     //动态规划一(横纵两个方向都为1，因为只能向右或者向下),但是实际运行时间仍然不满意
-    public int uniquePaths(int m, int n) {
+    public int uniquePathsBack(int m, int n) {
         int tmpM = m;
         int tmpN = n;
         int[][] table = new int[m][n];
@@ -38,6 +38,21 @@ public class UniquePaths {
             }
         }
         return table[tmpM - 1][tmpN - 1];
+    }
+
+    //针对上面方法，进一步节省存储空间的方法
+    public int uniquePaths(int m,int n){
+        int tmpN = n;
+        int[] table = new int[n];
+        while (tmpN>0){
+            table[--tmpN] = 1;
+        }
+        for(int i = 1;i<m;i++){
+            for(int j = 1;j<n;j++){
+                table[j] += table[j-1];
+            }
+        }
+        return table[n-1];
     }
 
 
