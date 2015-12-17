@@ -11,7 +11,7 @@ package com.computinglife.leetcode.medium;
 public class MinimumPathSum {
     public int minPathSum(int[][] grid) {
         int row = grid.length;
-        int column = 0;
+        int column;
         if (row == 0) {
             return 0;
         } else {
