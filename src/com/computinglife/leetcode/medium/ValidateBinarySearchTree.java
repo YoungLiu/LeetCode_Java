@@ -8,6 +8,7 @@
 
 package com.computinglife.leetcode.medium;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -55,7 +56,7 @@ public class ValidateBinarySearchTree {
         if(root == null){
             return true;
         }
-        List<Integer> seq = new LinkedList<>();
+        List<Integer> seq = new ArrayList<>();
         helper2(root, seq);
         for(int i = 0;i<seq.size()-1;i++){
             if(seq.get(i)>=seq.get(i+1))
