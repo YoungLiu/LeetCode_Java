@@ -13,30 +13,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AddDigit {
-	public int addDigits(int num) {
-		List<Integer> tmp = new ArrayList<Integer>();
-		while (num / 10 != 0) {
-			tmp = segmentation(num);
-			num = 0;
-			for (Integer position : tmp) {
-				num += position;
-			}
-		}
-		return num;
+    public int addDigits(int num) {
+        List<Integer> tmp = null;
+        while (num / 10 != 0) {
+            tmp = segmentation(num);
+            num = 0;
+            for (Integer position : tmp) {
+                num += position;
+            }
+        }
+        return num;
 
-	}
+    }
 
-	public List<Integer> segmentation(int num) {
-		List<Integer> result = new ArrayList<Integer>();
-		do {
-			result.add(num % 10);
-			num /= 10;
-		} while (num != 0);
-		return result;
-	}
+    public List<Integer> segmentation(int num) {
+        List<Integer> result = new ArrayList<Integer>();
+        do {
+            result.add(num % 10);
+            num /= 10;
+        } while (num != 0);
+        return result;
+    }
 
-	public static void main(String[] args) {
-		AddDigit addDigit = new AddDigit();
-		System.out.println(addDigit.addDigits(666));
-	}
+    public static void main(String[] args) {
+        AddDigit addDigit = new AddDigit();
+        System.out.println(addDigit.addDigits(666));
+    }
 }

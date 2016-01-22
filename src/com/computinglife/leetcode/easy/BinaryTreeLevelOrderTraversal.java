@@ -60,9 +60,6 @@ public class BinaryTreeLevelOrderTraversal {
             }
             ret.add(tmp);
         }
-
         return ret;
-
     }
-
 }
