@@ -14,11 +14,11 @@ import java.util.Set;
  * Created by youngliu on 1/22/16.
  */
 public class WordBreak {
-    public boolean wordBreak(String s, Set<String> wordDict) {
+    public boolean wordBreakTIMELIMIT(String s, Set<String> wordDict) {
         return wordBreakHelper(s, wordDict, 0);
     }
 
-    //naive方法
+    //naive方法-->Time Limit Exceeded
     public boolean wordBreakHelper(String s, Set<String> wordDict, int start) {
         if (start == s.length()) {
             return true;
@@ -29,8 +29,8 @@ public class WordBreak {
             if (end > s.length()) {
                 continue;
             }
-            if (s.substring(start, end).equals(s)) {
-                if (wordBreakHelper(s, wordDict, start + len)) {
+            if (s.substring(start, end).equals(word)) {
+                if (wordBreakHelper(s, wordDict, end)) {
                     return true;
                 }
             }
@@ -38,5 +38,31 @@ public class WordBreak {
         return false;
     }
 
+    //dynamic programming
+    public boolean wordBreakDP(String s, Set<String> wordDict) {
+        boolean[] status = new boolean[s.length() + 1];
+        status[0] = true;
+        for (int i = 0; i < s.length(); i++) {
+            //从true开始
+            if (!status[i]) {
+                continue;
+            }
+            for (String word : wordDict) {
+                int len = word.length();
+                int end = i + len;
+                if (end > s.length()) {
+                    continue;
+                }
+                if (status[end]) {
+                    continue;
+                }
+                if (s.substring(i, end).equals(word)) {
+                    status[end] = true;
+                }
+            }
+        }
+        return status[s.length()];
+    }
 
+    //此题也可以使用正则表达式来进行判断
 }
