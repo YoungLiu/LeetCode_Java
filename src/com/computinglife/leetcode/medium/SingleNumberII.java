@@ -30,9 +30,24 @@ public class SingleNumberII {
         return res[0];
     }
 
+    public int singleNumberUseBits(int[] nums) {
+        int[] digits = new int[32];
+        for (int i = 0; i < 32; i++) {
+            for (int j = 0; j < nums.length; j++) {
+                digits[i] += (nums[j] >> i) & 1;
+            }
+        }
+
+        int res = 0;
+        for (int i = 0; i < 32; i++) {
+            res += (digits[i] % 3) << i;
+        }
+        return res;
+    }
+
     public static void main(String[] args) {
         SingleNumberII test = new SingleNumberII();
         int[] nums = {2, 4, 3, 4, 3, 1, 2, 3, 2, 4};
-        System.out.println(test.singleNumber(nums));
+        System.out.println(test.singleNumberUseBits(nums));
     }
 }
