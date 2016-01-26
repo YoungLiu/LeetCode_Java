@@ -22,7 +22,24 @@ public class LinkedListCycleII {
     }
 
     public ListNode detectCycle(ListNode head) {
-
+        ListNode fast = head;
+        ListNode slow = head;
+        boolean flag = false;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) {
+                flag = true;
+                break;
+            }
+        }
+        if (!flag) {
+            return null;
+        }
+        while (head != fast) {
+            head = head.next;
+            fast = fast.next;
+        }
+        return head;
     }
-
 }
