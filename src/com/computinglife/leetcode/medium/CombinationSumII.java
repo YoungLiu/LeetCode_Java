@@ -23,40 +23,40 @@ import java.util.List;
 import java.util.Set;
 
 public class CombinationSumII {
-	private List<List<Integer>> res = new ArrayList<>();
+    private List<List<Integer>> res = new ArrayList<>();
 
-	public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
 
-		Boolean[] isVisited = new Boolean[candidates.length];
-		Arrays.fill(isVisited, false);
-		combination(candidates, new ArrayList<Integer>(), target, 0, 0, isVisited);
-		return res;
-	}
+        Boolean[] isVisited = new Boolean[candidates.length];
+        Arrays.fill(isVisited, false);
+        combination(candidates, new ArrayList<Integer>(), target, 0, 0, isVisited);
+        return res;
+    }
 
-	public void combination(int[] candidates, List<Integer> list, int target, int sum, int max, Boolean[] isVisited) {
-		if (sum > target) {
-			return;
-		}
-		if (target == sum) {
-			res.add(new ArrayList<>(list));
-		}
-		Set<Integer> set = new HashSet<>();
-		for (int i = 0; i < candidates.length; i++) {
-			if (!isVisited[i] && candidates[i] >= max && !set.contains(candidates[i])) {
-				set.add(candidates[i]);
-				isVisited[i] = true;
-				list.add(candidates[i]);
-				combination(candidates, list, target, sum + candidates[i], candidates[i], isVisited);
-				isVisited[i] = false;
-				list.remove(list.size() - 1);
-			}
-		}
-	}
+    public void combination(int[] candidates, List<Integer> list, int target, int sum, int max, Boolean[] isVisited) {
+        if (sum > target) {
+            return;
+        }
+        if (target == sum) {
+            res.add(new ArrayList<>(list));
+        }
+        Set<Integer> set = new HashSet<>();
+        for (int i = 0; i < candidates.length; i++) {
+            if (!isVisited[i] && candidates[i] >= max && !set.contains(candidates[i])) {
+                set.add(candidates[i]);
+                isVisited[i] = true;
+                list.add(candidates[i]);
+                combination(candidates, list, target, sum + candidates[i], candidates[i], isVisited);
+                isVisited[i] = false;
+                list.remove(list.size() - 1);
+            }
+        }
+    }
 
-	public static void main(String[] args) {
-		CombinationSumII test = new CombinationSumII();
-		int[] nums = { 1 };
-		test.combinationSum2(nums, 1);
-		System.out.println(test.res);
-	}
+    public static void main(String[] args) {
+        CombinationSumII test = new CombinationSumII();
+        int[] nums = {1};
+        test.combinationSum2(nums, 1);
+        System.out.println(test.res);
+    }
 }
