@@ -15,7 +15,6 @@ package com.computinglife.leetcode.medium;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.Stack;
 
 /**
@@ -166,6 +165,14 @@ public class BasicCalculatorII {
             }
 
         }
+
+        if (bufferingOperand) {
+            postfix.add(numberBuffer);
+        }
+
+        while (!operators.isEmpty()) {
+            postfix.add(operators.pop());
+        }
         return postfix;
     }
 
@@ -198,5 +205,10 @@ public class BasicCalculatorII {
             }
         }
         return operands.pop();
+    }
+
+    public static void main(String[] args) {
+        BasicCalculatorII test = new BasicCalculatorII();
+        System.out.println(test.calculate("1 + 1"));
     }
 }
