@@ -6,7 +6,9 @@
 
         Hint:
 
-        Beware of overflow.*/
+        Beware of overflow.
+        参考:http://blog.csdn.net/wzy_1988/article/details/47148263
+        */
 
 package com.computinglife.leetcode.medium;
 
