@@ -95,6 +95,4 @@ public class LowestCommonAncestorofaBinaryTree {
             return lowestCommonAncestor(root.right, p, q);
         }
     }
-
-
 }
