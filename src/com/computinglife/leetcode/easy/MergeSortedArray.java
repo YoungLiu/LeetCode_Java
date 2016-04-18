@@ -14,7 +14,7 @@ import java.util.List;
  * Created by Young on 2015/10/6.
  */
 public class MergeSortedArray {
-
+    //naive method
     public void merge(int[] nums1, int m, int[] nums2, int n) {
 
         List<Integer> numList = new ArrayList<>();

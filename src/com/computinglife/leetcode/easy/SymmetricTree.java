@@ -12,7 +12,7 @@
 //           / \
 //          2   2
 //           \   \
-//           3    3
+//            3   3
 
 package com.computinglife.leetcode.easy;
 

@@ -22,6 +22,7 @@ package com.computinglife.leetcode.medium;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Set;
+import java.util.Vector;
 
 /**
  * Created by youngliu on 1/7/16.
