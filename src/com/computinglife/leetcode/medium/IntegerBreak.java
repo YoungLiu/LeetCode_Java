@@ -44,20 +44,11 @@ public class IntegerBreak {
         res.add(4);
         res.add(6);
         res.add(9);
-        res.add(12);
-        res.add(18);
-        if (n <= 8) {
+        if (n < 7) {
             return res.get(n);
         }
-        int tmp;
         for (int i = 7; i <= n; i++) {
-            if ((i & 1) == 1) {
-                //odd
-                res.add(res.get(i / 2) * res.get(i / 2 + 1));
-            } else {
-                //even
-                res.add(res.get(i / 2) * res.get(i / 2));
-            }
+            res.add(Math.max(2 * res.get(i - 2), 3 * res.get(i - 3)));
         }
         return res.get(n);
     }
