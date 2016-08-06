@@ -13,9 +13,7 @@
 
 package com.computinglife.leetcode.medium;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class FourSum {
 	public List<List<Integer>> fourSum(int[] nums, int target) {

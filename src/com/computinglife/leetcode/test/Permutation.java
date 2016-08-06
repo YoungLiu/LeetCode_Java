@@ -10,7 +10,7 @@ public class Permutation {
 			for (int i = 0; i <= to; i++) {
 				System.out.print(nums[i]);
 			}
-			System.err.println("一组结束");
+			System.out.println("\n");
 		} else {
 			for (int j = from; j <= to; j++) {
 				swap(nums, j, from);
