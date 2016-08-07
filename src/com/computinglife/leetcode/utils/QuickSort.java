@@ -50,9 +50,8 @@ public class QuickSort {
         int[] arrays = {8, 6, 2, 4};
         quickSort(arrays);
         for (int tmp : arrays) {
-            System.out.println(tmp);
+            System.out.printf("%d ", tmp);
         }
-
     }
 
 }
