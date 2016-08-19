@@ -1,16 +1,16 @@
-package com.computinglife.leetcode.test;
+package com.computinglife.leetcode.utils;
 
 public class Permutation {
 
 	private void allPermutation(int[] nums, int from, int to) {
-		if (to <= 1) {
+		if (to <= 0) {
 			return;
 		}
 		if (from == to) {
 			for (int i = 0; i <= to; i++) {
 				System.out.print(nums[i]);
 			}
-			System.out.println("\n");
+			System.out.println("");
 		} else {
 			for (int j = from; j <= to; j++) {
 				swap(nums, j, from);
