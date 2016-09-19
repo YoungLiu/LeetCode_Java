@@ -1,6 +1,8 @@
 package com.computinglife.leetcode.exam;
 
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 /**
  * Created by yliu on 8/5/16.
@@ -45,6 +47,7 @@ public class Huawei02 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String input = sc.nextLine();
+        Set<Integer> set = new HashSet<>();
         String[] array = input.split(" ");
         int n = Integer.parseInt(array[0]);
         int[] nums = new int[n];
