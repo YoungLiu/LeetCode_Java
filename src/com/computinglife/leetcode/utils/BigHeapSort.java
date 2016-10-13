@@ -8,7 +8,7 @@ public class BigHeapSort {
     public static void main(String[] args) {
         int[] nums = new int[]{16, 7, 3, 20, 17, 8};
         bigHeapSort(nums, nums.length - 1);
-        for(int tmp : nums){
+        for (int tmp : nums) {
             System.out.print(tmp);
             System.out.print(" ");
         }
@@ -30,24 +30,24 @@ public class BigHeapSort {
     }
 
     public static void buildBigHeap(int[] nums, int size) {
-        for (int i = size / 2; i >= 0; i--){
+        for (int i = size / 2; i >= 0; i--) {
             bigHeapAdjust(nums, i, size);
         }
         return;
     }
 
-    public static void bigHeapAdjust(int[] nums, int i, int size){
+    public static void bigHeapAdjust(int[] nums, int i, int size) {
         int lChild = 2 * i;
         int rChild = 2 * i + 1;
         int max = i;
-        if(i <= size / 2){
-            if(lChild <= size && nums[lChild] > nums[max]){
+        if (i <= size / 2) {
+            if (lChild <= size && nums[lChild] > nums[max]) {
                 max = lChild;
             }
-            if(rChild <=size && nums[rChild] > nums[max]){
+            if (rChild <= size && nums[rChild] > nums[max]) {
                 max = rChild;
             }
-            if(max != i){
+            if (max != i) {
                 swap(nums, max, i);
                 bigHeapAdjust(nums, max, size);
             }
